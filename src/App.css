@@ -8,20 +8,50 @@
   box-sizing: border-box;
 }
 
-body {
-  background-color: #f7f7f7;
+.header {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
   margin: 0;
+  padding: 40px 0px 30px;
+  font-size: xx-large;
+}
+
+body {
+  background-color: #f7f7f7;
+  /* display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0; */
   font-family: 'Avenir', sans-serif;
 }
 
-.container {
-  margin: 30px auto;
-  width: 350px;
+section {
+  display: flex;
+  flex-direction: row;
+}
+
+.left-container {
+  margin: 20px auto;
+  margin-left: 100px;
+  width: 400px;
+  align-items: center;
+}
+
+.middle-container {
+  margin: 20px 30px auto;
+  width: 400px;
+  align-items: center;
+}
+
+.right-container {
+  margin: 20px auto;
+  margin-right: 100px;
+  width: 400px;
+  align-items: center;
 }
 
 h1 {
@@ -40,10 +70,22 @@ h4 {
   text-transform: uppercase;
 }
 
+h5 {
+  margin: 5px 0 5px;
+  text-transform: uppercase;
+  align-items: left;
+}
+
+h6 {
+  margin: 5px 0 5px;
+  text-transform: uppercase;
+  align-items: left;
+}
+
 .inc-exp-container {
   background-color: #fff;
   box-shadow: var(--box-shadow);
-  padding: 20px;
+  padding: 30px;
   display: flex;
   justify-content: space-between;
   margin: 20px 0;
@@ -89,7 +131,7 @@ input[type='number'] {
 
 .btn {
   cursor: pointer;
-  background-color: #f9c74f;
+  background-color: #f4c966;
   box-shadow: var(--box-shadow);
   color: #fff;
   border: 0;
@@ -118,7 +160,7 @@ input[type='number'] {
   display: flex;
   justify-content: space-between;
   position: relative;
-  padding: 10px;
+  padding: 12px 20px;
   margin: 10px 0;
 }
 
@@ -148,4 +190,69 @@ input[type='number'] {
 
 .list li:hover .delete-btn {
   opacity: 1;
+}
+
+.add-transaction {
+  background-color: #fff;
+  box-shadow: var(--box-shadow);
+  padding: 10px 30px;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  line-height: 20px;
+}
+
+.add-budget {
+  background-color: #fff;
+  box-shadow: var(--box-shadow);
+  padding: 10px 30px;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  line-height: 20px;
+}
+
+.budget-card {
+  background-color: #fff;
+  box-shadow: var(--box-shadow);
+  padding: 10px 30px;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  line-height: 20px;
+}
+
+.budget-card .top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.budget-card .title {
+  margin: 5px 2px 5px;
+  text-transform: uppercase;
+  align-items: left;
+  font-weight: bolder;
+}
+
+.budget-card .amount {
+  margin: 5px 0 5px;
+  text-transform: uppercase;
+  align-items: right;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.budget-card .amount .muted {
+  margin: 5px 2px 5px;
+  text-transform: uppercase;
+  align-items: right;
+  color: #959393;
+  font-size: smaller;
 }
