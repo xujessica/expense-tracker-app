@@ -82,6 +82,10 @@ h6 {
   align-items: left;
 }
 
+.top {
+  margin-top: 15px;
+}
+
 .inc-exp-container {
   background-color: #fff;
   box-shadow: var(--box-shadow);
@@ -129,7 +133,7 @@ input[type='number'] {
   width: 100%;
 }
 
-.btn {
+.add-btn {
   cursor: pointer;
   background-color: #f4c966;
   box-shadow: var(--box-shadow);
@@ -140,6 +144,24 @@ input[type='number'] {
   margin: 10px 0 30px;
   padding: 10px;
   width: 100%;
+  border-radius: 5px;
+}
+
+.view-btn {
+  cursor: pointer;
+  border-color: #b7b7b7;
+  background-color: #fff;
+  border-width: 2px;
+  color: #b7b7b7;
+  display: block;
+  font-size: 16px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin: 20px 0px 20px;
+  padding: 10px;
+  width: 50%;
+  border-radius: 5px;
 }
 
 .btn:focus,
@@ -255,4 +277,23 @@ input[type='number'] {
   align-items: right;
   color: #959393;
   font-size: smaller;
+}
+
+.whole-bar {
+  height: 20px;
+  width: 100%;
+  background-color: #ececec;
+  border-radius: 50px;
+  margin: 50;
+}
+
+.progress-done {
+    height: 100%;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #277da1;
+    border-radius: 50px;
+    transition: 0.5s ease;
 }

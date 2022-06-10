@@ -26,7 +26,7 @@ const AddBudget = () => {
                         onChange={(e) => setAmount(e.target.value)}
                         placeholder="Enter amount..." />
                 </div>
-                <button className="btn">Add Budget</button>
+                <button className="add-btn">Add Budget</button>
             </form>
         </div>
     )

@@ -36,7 +36,7 @@ const AddTransaction = () => {
                         onChange={(e) => setText(e.target.value)} 
                         placeholder="Enter budget category..." />
                 </div>
-                <button className="btn">Add Transaction</button>
+                <button className="add-btn">Add Transaction</button>
             </form>
         </div>
     )
