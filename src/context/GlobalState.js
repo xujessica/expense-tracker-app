@@ -5,6 +5,7 @@ import AppReducer from "./AppReducer";
 const initialState = {
   transactions: [],
   budgets: [],
+  budgetExpenses: [],
 };
 
 // create context
@@ -36,14 +37,39 @@ export const GlobalProvider = ({ children }) => {
     });
   }
 
+  function deleteBudget(id) {
+    dispatch({
+      type: "DELETE_BUDGET",
+      payload: id, // data we want to send to it
+    });
+  }
+
+  function addBudgetExpense(expense) {
+    dispatch({
+      type: "ADD_BUDGET_EXPENSE",
+      payload: expense, // data we want to send to it
+    });
+  }
+
+  function deleteBudgetExpense(id) {
+    dispatch({
+      type: "DELETE_BUDGET_EXPENSE",
+      payload: id, // data we want to send to it
+    });
+  }
+
   return (
     <GlobalContext.Provider
       value={{
         transactions: state.transactions,
         budgets: state.budgets,
+        budgetExpenses: state.budgetExpenses,
         deleteTransaction,
         addTransaction,
         addBudget,
+        deleteBudget,
+        addBudgetExpense,
+        deleteBudgetExpense,
       }}
     >
       {children}

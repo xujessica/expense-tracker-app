@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Avenir&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Avenir&display=swap");
 
 :root {
   --box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -20,13 +20,7 @@
 
 body {
   background-color: #f7f7f7;
-  /* display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  margin: 0; */
-  font-family: 'Avenir', sans-serif;
+  font-family: "Avenir", sans-serif;
 }
 
 section {
@@ -93,6 +87,7 @@ h6 {
   display: flex;
   justify-content: space-between;
   margin: 20px 0;
+  border-radius: 5px;
 }
 
 .inc-exp-container > div {
@@ -123,8 +118,8 @@ label {
   margin: 10px 0;
 }
 
-input[type='text'],
-input[type='number'] {
+input[type="text"],
+input[type="number"] {
   border: 1px solid #dedede;
   border-radius: 2px;
   display: block;
@@ -182,10 +177,11 @@ input[type='number'] {
   box-shadow: var(--box-shadow);
   color: #333;
   display: flex;
-  justify-content: space-between;
-  position: relative;
-  padding: 12px 20px;
+  padding: 12px 20px 12px 0;
   margin: 10px 0;
+  border-radius: 5px;
+  position: static;
+  align-items: center;
 }
 
 .list li.plus {
@@ -194,6 +190,40 @@ input[type='number'] {
 
 .list li.minus {
   border-right: 5px solid #f94144;
+}
+
+.list li.plus .text {
+  justify-content: space-between;
+  width: 120%;
+}
+
+.list li.minus .text {
+  justify-content: space-between;
+  width: 100%;
+}
+
+.modal-list {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 40px;
+  justify-content: center;
+}
+
+.modal-list li {
+  background-color: #fff;
+  box-shadow: var(--box-shadow);
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  padding: 12px 20px;
+  margin: 10px 0;
+  width: 530px;
+  border-radius: 5px;
+}
+
+.modal-open {
+  background-color: rgb(141, 141, 141, 0.8);
 }
 
 .delete-btn {
@@ -206,9 +236,24 @@ input[type='number'] {
   padding: 2px 5px;
   position: absolute;
   top: 50%;
-  left: 0;
-  transform: translate(-100%, -50%);
+  left: 20;
+  transform: translate(-100%);
   opacity: 0;
+  transition: opacity 0.3s ease;
+  position: relative;
+}
+
+.modal-delete-btn {
+  cursor: pointer;
+  background-color: #f94144;
+  border: 0;
+  color: #fff;
+  font-size: 20px;
+  line-height: 20px;
+  padding: 2px 5px;
+  position: absolute;
+  right: 0;
+  transform: translate(100%, -10%);
   transition: opacity 0.3s ease;
 }
 
@@ -225,6 +270,7 @@ input[type='number'] {
   display: flex;
   flex-direction: column;
   line-height: 20px;
+  border-radius: 5px;
 }
 
 .add-budget {
@@ -236,6 +282,7 @@ input[type='number'] {
   display: flex;
   flex-direction: column;
   line-height: 20px;
+  border-radius: 5px;
 }
 
 .budget-card {
@@ -247,6 +294,7 @@ input[type='number'] {
   display: flex;
   flex-direction: column;
   line-height: 20px;
+  border-radius: 5px;
 }
 
 .budget-card .top {
@@ -290,14 +338,14 @@ input[type='number'] {
 }
 
 .progress-done {
-    height: 100%;
-    width: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #277da1;
-    border-radius: 50px;
-    transition: 0.5s ease;
+  height: 100%;
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #277da1;
+  border-radius: 50px;
+  transition: 0.5s ease;
 }
 
 .btn-row {
@@ -313,12 +361,10 @@ input[type='number'] {
   justify-content: center;
   align-items: baseline;
   padding: 5px;
-  margin: -8px 0px 5px ;
-  /* box-shadow: var(--box-shadow); */
+  margin: -8px 0px 5px;
 }
 
 .radio-btns .single-radio {
-  /* box-shadow: var(--box-shadow); */
   justify-content: left;
   margin: 10px 12px 10px 30px;
 }
@@ -329,4 +375,103 @@ input[type='number'] {
 
 .form-control .label {
   font-weight: bolder;
+}
+
+.modal-background {
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  margin: 0;
+  background-color: rgb(141, 141, 141, 0.8);
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+}
+
+.modal-background .modal-container {
+  width: 600px;
+  height: 600px;
+  border-radius: 12px;
+  background-color: #f7f7f7;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+}
+
+.modal-background .modal-container .exit-btn-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  align-items: baseline;
+}
+
+.modal-background .modal-container .exit-btn-row .exit-btn {
+  cursor: pointer;
+  border-color: #b7b7b7;
+  background-color: #fff;
+  border-width: 2px;
+  color: #b7b7b7;
+  display: block;
+  font-size: 16px;
+  justify-content: center;
+  align-items: right;
+  display: flex;
+  margin: 5px;
+  padding: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  outline: none;
+  box-shadow: none;
+}
+
+.modal-background .modal-container .title {
+  display: inline-block;
+  text-align: center;
+  margin-top: 10px;
+  font-size: larger;
+  margin: 5px 2px 10px;
+  text-transform: uppercase;
+  font-weight: bolder;
+}
+
+.modal-background .modal-container .buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  align-items: baseline;
+}
+
+.modal-background .modal-container .buttons .delete-modal-btn {
+  cursor: pointer;
+  border-color: #b7b7b7;
+  background-color: #fff;
+  border-width: 2px;
+  color: #b7b7b7;
+  display: block;
+  font-size: 16px;
+  justify-content: center;
+  align-items: right;
+  display: flex;
+  margin: 20px 0px 20px;
+  padding: 15px 10px;
+  width: 220px;
+  border-radius: 5px;
+  outline: none;
+  box-shadow: none;
+  position: absolute;
+  bottom: 205px;
+  right: 595px;
+}
+
+.test {
+  color: green;
+}
+
+.test .work {
+  color: red;
 }

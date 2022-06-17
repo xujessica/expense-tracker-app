@@ -1,39 +1,48 @@
 import React, { useState, useContext } from "react";
 import { GlobalContext } from "../context/GlobalState";
-import { RadioGroup, RadioButton } from "react-radio-buttons";
-import { Dropdown } from "bootstrap";
 
 const AddTransaction = () => {
   const [text, setText] = useState("");
   const [sign, setSign] = useState({
     checked: false,
-});
+  });
   const [amount, setAmount] = useState();
   const [category, setCategory] = useState("");
 
   const { addTransaction } = useContext(GlobalContext);
-  const { budgets } = useContext(GlobalContext);
+  const { addBudgetExpense } = useContext(GlobalContext);
 
   const onSubmit = (e) => {
     e.preventDefault();
 
     const newAmount = sign === "negative" ? amount * -1 : amount;
+    const id = Math.floor(Math.random() * 10000000000);
 
     const newTransaction = {
-      id: Math.floor(Math.random() * 10000000000),
+      id: id,
       text,
       sign,
       amount: +newAmount, // turns it into a number
       category,
     };
 
+    const newBudgetExpense = {
+      id: id,
+      text,
+      amount: +newAmount,
+      category,
+    };
+
     addTransaction(newTransaction);
+    if (sign === "negative") {
+      addBudgetExpense(newBudgetExpense);
+    }
 
     setText("");
     setSign(() => {
-        return {
-            checked: false,
-        };
+      return {
+        checked: false,
+      };
     });
     setAmount("");
     setCategory("");
@@ -57,8 +66,6 @@ const AddTransaction = () => {
         <div className="form-control">
           <label className="label" htmlFor="amount">
             Amount
-            {/* <br />
-            (negative = expense, positive = income) */}
           </label>
           <div className="radio-btns">
             <input
@@ -100,7 +107,6 @@ const AddTransaction = () => {
             />
           </div>
         ) : null}
-        {/* <Dropdown title="Select a Budget Category" list={budgets.map((budget) => budget.text)}/> */}
         <button className="add-btn">Add Transaction</button>
       </form>
     </div>

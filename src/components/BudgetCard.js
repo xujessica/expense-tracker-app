@@ -1,9 +1,8 @@
 import React from "react";
 import { currencyFormatter } from "./utils";
 import ProgressBar from "./ProgressBar";
-import { GlobalContext } from "../context/GlobalState";
 
-export const BudgetCard = ({ budget, amount }) => {
+export const BudgetCard = ({ budget, amount, setOpenModal, setBudget }) => {
   return (
     <div className="budget-card">
       <div className="top">
@@ -15,7 +14,15 @@ export const BudgetCard = ({ budget, amount }) => {
       </div>
       <ProgressBar amount={amount} max={budget.max} />
       <div className="btn-row">
-        <button className="view-btn">View Expenses</button>
+        <button
+          className="view-btn"
+          onClick={() => {
+            setOpenModal(true);
+            setBudget(budget);
+          }}
+        >
+          View Expenses
+        </button>
       </div>
     </div>
   );
