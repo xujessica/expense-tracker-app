@@ -1,7 +1,7 @@
 import React from "react";
 
 const ProgressBar = ({ amount, max }) => {
-  const ratio = amount / max;
+  const ratio = amount <= max ? (amount / max) : (max / max);
 
   return (
     <div className="whole-bar">
